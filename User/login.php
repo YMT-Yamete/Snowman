@@ -1,5 +1,7 @@
 <?php 
 	$connect = mysqli_connect('localhost','root','','snowman_project');
+	session_start();
+
 	if (isset($_POST['Submit'])) {
 		$email = $_POST['Email'];
 		$password = $_POST['Password'];
@@ -7,8 +9,15 @@
 		$select = "SELECT * FROM user WHERE Email = '$email' AND Password = sha1('$password')";
 		$query = mysqli_query($connect,$select);
 		$count = mysqli_num_rows($query);
+		$arr = mysqli_fetch_array($query);
 
 		if ($count>0) {
+			$_SESSION['UserID'] = $arr['UserID'];
+			$_SESSION['UserName'] = $arr['UserName'];
+			$_SESSION['Email'] = $arr['Email'];
+			$_SESSION['Password'] = $arr['Password'];
+			$_SESSION['Member'] = $arr['Member'];
+			
 			echo "<script>alert('Login Successful')</script>";
 			echo "<script>window.location = 'homepage.php'</script>";
 		}
