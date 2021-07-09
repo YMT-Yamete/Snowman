@@ -102,9 +102,9 @@
 
 	$insert = "INSERT INTO service VALUES (1, 'small car cleaning', 3000)";
 	$query = mysqli_query($connect, $insert);
-	$insert = "INSERT INTO service VALUES (2, 'medium car cleaning', 5000)";
+	$insert = "INSERT INTO service VALUES (2, 'large car cleaning', 5000)";
 	$query = mysqli_query($connect, $insert);
-	$insert = "INSERT INTO service VALUES (3, 'large car cleaning', 8000)";
+	$insert = "INSERT INTO service VALUES (3, 'XL car cleaning', 8000)";
 	$query = mysqli_query($connect, $insert);
 	$insert = "INSERT INTO service VALUES (4, 'stickering', 6000)";
 	$query = mysqli_query($connect, $insert);
