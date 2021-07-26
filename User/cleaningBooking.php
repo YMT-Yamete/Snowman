@@ -16,7 +16,7 @@
 			$phone = $_POST['phone'];
 			$date = $_POST['date'];
 			$time = $_POST['time'];
-			echo "<script>window.location = 'voucher.php?service=$service?name=$name?phone=$phone?date=$date?time=$time'</script>";
+			echo "<script>window.location = 'voucher.php?service=$service&name=$name&phone=$phone&date=$date&time=$time'</script>";
 		}
 	}
 ?>
@@ -29,7 +29,7 @@
 	<div>
 		<img src="assets/car-sizes-removebg-preview.png">
 		<form method="POST" action="cleaningBooking.php">
-			<h1>What's the size your car?</h1>
+			<p>What's the size your car?</p>
 			<input type="radio" name="service" value="small car cleaning">
 			<label for="html">Small/Medium</label><br>
 			<input type="radio" name="service" value="large car cleaning">
