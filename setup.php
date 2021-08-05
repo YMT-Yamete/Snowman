@@ -185,7 +185,7 @@
 
 	$create = "CREATE TABLE membership
 				(MemberID int AUTO_INCREMENT NOT NULL PRIMARY KEY,
-				MembershipDetails varchar(30),
+				MembershipDetails varchar(255),
 				Status varchar(30) DEFAULT 'Pending',
 				StartDate date,
 				EndDate date,

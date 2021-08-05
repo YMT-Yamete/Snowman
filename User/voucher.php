@@ -33,17 +33,34 @@
 		$price = $_POST['price'];
 		$serviceID = $_POST['serviceID'];
 
-		$insert = "INSERT INTO booking (Name, Phone, Date, Time, TotalPrice, UserID, ServiceID)
+		$select = "SELECT * FROM schedule
+					WHERE Date = '$date'
+					AND Time = '$time'";
+		$query = mysqli_query($connect, $select);
+		$row = mysqli_num_rows($query);
+
+		if ($row > 0) {
+			echo "<script>alert('We\'re sorry. Your chosen date and time is already taken')</script>";
+			echo "<script>history.go(-2)</script>";
+		}
+		else {	
+			$insert1 = "INSERT INTO booking (Name, Phone, Date, Time, TotalPrice, UserID, ServiceID)
 					VALUES ('$name', '$phone', '$date', '$time', '$price', '$userID', '$serviceID')";
 
-		$query = mysqli_query($connect,$insert);
+			$query1 = mysqli_query($connect,$insert1);
+			$last_id = mysqli_insert_id($connect);
 
-		if ($query) {
-			echo "<script>alert('Booking Successful.')</script>";
-			echo "<script>window.location = 'homepage.php'</script>";
-		}
-		else{
-			echo mysqli_error($connect);
+			$insert2 = "INSERT INTO schedule (Date, Time, BookingID)
+						VALUES ('$date', '$time', '$last_id')";
+			$query2 = mysqli_query($connect,$insert2);
+
+			if ($query1 and $query2) {
+				echo "<script>alert('Booking Successful.')</script>";
+				echo "<script>window.location = 'homepage.php'</script>";
+			}
+			else {
+				echo mysqli_error($connect);
+			}
 		}
 	}
 ?>
@@ -53,21 +70,23 @@
 	<title>Snowman Service</title>
 </head>
 <body>
-	<p><?php echo "Service : $service" ?></p>
-	<p><?php echo "Name : $name" ?></p>
-	<p><?php echo "Phone : $phone" ?></p>
-	<p><?php echo "Date : $date" ?></p>
-	<p><?php echo "Time : $time" ?></p>
-	<p><?php echo "Price : $price" ?></p>
-	<form method="POST" action="voucher.php">
-		<input type="hidden" name="service" value=<?php echo "'$service'"?>>
-		<input type="hidden" name="name" value=<?php echo "'$name'" ?>>
-		<input type="hidden" name="phone" value=<?php echo "'$phone'" ?>>
-		<input type="hidden" name="date" value=<?php echo "'$date'" ?>>
-		<input type="hidden" name="time" value=<?php echo "'$time'" ?>>
-		<input type="hidden" name="price" value=<?php echo $price ?>>
-		<input type="hidden" name="serviceID" value=<?php echo $serviceID ?>>
-		<input type="submit" name="confirm" value="Confirm">
-	</form>
+	<div>
+		<p><?php echo "Service : $service" ?></p>
+		<p><?php echo "Name : $name" ?></p>
+		<p><?php echo "Phone : $phone" ?></p>
+		<p><?php echo "Date : $date" ?></p>
+		<p><?php echo "Time : $time" ?></p>
+		<p><?php echo "Price : $price" ?></p>
+		<form method="POST" action="voucher.php">
+			<input type="hidden" name="service" value=<?php echo "'$service'"?>>
+			<input type="hidden" name="name" value=<?php echo "'$name'" ?>>
+			<input type="hidden" name="phone" value=<?php echo "'$phone'" ?>>
+			<input type="hidden" name="date" value=<?php echo "'$date'" ?>>
+			<input type="hidden" name="time" value=<?php echo "'$time'" ?>>
+			<input type="hidden" name="price" value=<?php echo $price ?>>
+			<input type="hidden" name="serviceID" value=<?php echo $serviceID ?>>
+			<input type="submit" name="confirm" value="Confirm">
+		</form>
+	</div>
 </body>
 </html>
