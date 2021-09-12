@@ -6,19 +6,19 @@
         $email = $_POST['Email'];
         $password = $_POST['Password'];
 
-        $select = "SELECT * FROM user WHERE Email = '$email' AND Password = sha1('$password')";
+        $select = "SELECT * FROM admin WHERE Email = '$email' AND Password = sha1('$password')";
         $query = mysqli_query($connect,$select);
         $count = mysqli_num_rows($query);
         $arr = mysqli_fetch_array($query);
 
         if ($count>0) {
-            $_SESSION['UserID'] = $arr['UserID'];
-            $_SESSION['UserName'] = $arr['UserName'];
-            $_SESSION['Email'] = $arr['Email'];
-            $_SESSION['Member'] = $arr['Member'];
+            $_SESSION['AdminID'] = $arr['AdminID'];
+            $_SESSION['AdminName'] = $arr['AdminName'];
+            $_SESSION['AdminEmail'] = $arr['Email'];
+            $_SESSION['AdminPassword'] = $arr['Password'];
             
             echo "<script>alert('Login Successful')</script>";
-            echo "<script>window.location = 'homepage.php'</script>";
+            echo "<script>window.location = 'booking.php'</script>";
         }
         else {
             echo "<script>alert('Incorrect Email or Password')</script>";
@@ -56,18 +56,18 @@
         </nav>
     </header><br><br><br>   
     <div class="card">
-        <h1 class="fieldHeader">Login</h1><br>
+        <h1 class="fieldHeader">Admin Login</h1><br>
         <form method="POST" action="login.php">
-            <table class="center"> 
+            <table class="center">
                 <tr>
-                    <td><input type="Email" name="Email" placeholder="Enter Email" required></td>
+                    <td><input type="Email" name="Email" placeholder="Enter Email"></td>
                 </tr>
                 <tr>
-                    <td><input type="Password" name="Password" placeholder="Enter Password" required></td>
+                    <td><input type="Password" name="Password" placeholder="Enter Password"></td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="Submit" name="Submit" value="Login">
+                        <input type="submit" value="Login" name="Submit">
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +78,7 @@
             </table>
         </form>
     </div>
-    <footer class="footer-distributed" style="position: fixed;">
+    <footer class="footer-distributed" style="position: fixed">
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
                  <p class="footer-company-name">snowman &copy; 2010</p>

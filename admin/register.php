@@ -1,27 +1,34 @@
 <?php 
     $connect = mysqli_connect('localhost','root','','snowman_project');
-    session_start();
-
     if (isset($_POST['Submit'])) {
+        $name = $_POST['Name'];
         $email = $_POST['Email'];
         $password = $_POST['Password'];
+        $repeatPassword = $_POST['RepeatPassword'];
 
-        $select = "SELECT * FROM user WHERE Email = '$email' AND Password = sha1('$password')";
+        $select = "SELECT * FROM admin WHERE Email = '$email'";
         $query = mysqli_query($connect,$select);
         $count = mysqli_num_rows($query);
-        $arr = mysqli_fetch_array($query);
 
         if ($count>0) {
-            $_SESSION['UserID'] = $arr['UserID'];
-            $_SESSION['UserName'] = $arr['UserName'];
-            $_SESSION['Email'] = $arr['Email'];
-            $_SESSION['Member'] = $arr['Member'];
-            
-            echo "<script>alert('Login Successful')</script>";
-            echo "<script>window.location = 'homepage.php'</script>";
+            echo "<script>alert('This Email is already in use.')</script>";
+            echo "<script>window.location='register.php'</script>";
         }
         else {
-            echo "<script>alert('Incorrect Email or Password')</script>";
+            if ($password==$repeatPassword) {
+                $insert = "INSERT INTO admin(AdminName, Email, Password)
+                        VALUES('$name', '$email', sha1('$password'))";
+                $query = mysqli_query($connect, $insert);
+                if ($query) {
+                    echo "<script>alert('Account created successfully.')</script>";
+                }
+                else {
+                    echo mysqli_error($connect);
+                }
+            }
+            else {
+                echo "<script>alert('Password and Repeat Password must be the same.')</script>";
+            }
         }
     }
 ?>
@@ -42,10 +49,10 @@
             <a href="#" class="nav-logo">Snowman Service</a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="register.php" class="nav-link">Register</a>
+                    <a href="register.php" class="activeNav">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login.php" class="activeNav">Login</a>
+                    <a href="login.php" class="nav-link" >Login</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -56,29 +63,35 @@
         </nav>
     </header><br><br><br>   
     <div class="card">
-        <h1 class="fieldHeader">Login</h1><br>
-        <form method="POST" action="login.php">
+        <h1 class="fieldHeader">Admin Register</h1><br>
+        <form method="POST" action="register.php">
             <table class="center"> 
                 <tr>
-                    <td><input type="Email" name="Email" placeholder="Enter Email" required></td>
+                    <td><input type="text" name="Name" placeholder="Enter Name"></td>
                 </tr>
                 <tr>
-                    <td><input type="Password" name="Password" placeholder="Enter Password" required></td>
+                    <td><input type="Email" name="Email" placeholder="Enter Email"></td>
+                </tr>
+                <tr>
+                    <td><input type="Password" name="Password" placeholder="Enter Password"></td>
+                </tr>
+                <tr>
+                    <td><input type="Password" name="RepeatPassword" placeholder="Enter Password Again"></td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="Submit" name="Submit" value="Login">
+                        <input type="submit" value="Register" name="Submit">
                     </td>
                 </tr>
                 <tr>
                     <td class="linkForReg">
-                        <a href="register.php">I don't have an account.</a>
+                        <a href="login.php">Already have an account?</a>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
-    <footer class="footer-distributed" style="position: fixed;">
+    <footer class="footer-distributed">
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
                  <p class="footer-company-name">snowman &copy; 2010</p>

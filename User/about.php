@@ -1,28 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Snowman Service</title>
-	<style>
-		ul#menu li {
-		  display:inline;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Snowman Service</title>
 </head>
+
 <body>
-	<ul id="menu">
-	  <a href="homepage.php" style="text-decoration: none;"><li style="font-size: 30px">Homepage &#160;</li></a>
-	  <a href="about.php" style="text-decoration: none;"><li style="font-size: 30px">About &#160;</li></a>
-	  <a href="membership.php" style="text-decoration: none;"><li style="font-size: 30px">Membership &#160;</li></a>
-	  <a href="profile.php" style="text-decoration: none;"><li style="font-size: 30px">Profile &#160;</li></a>
-	</ul>
-	<div style="margin-left: 2%">
-		<p style="font-size: 20px;">
-			Lorem ipsum dolor sit amet. Ex possimus omnis eos vero sequi aut illum rerum ab vitae modi cum omnis adipisci a adipisci corporis est voluptas quos. Vel quidem suscipit ut nulla vitae est error quas et ipsam adipisci ut beatae eligendi. Eos ratione unde aut magni illum et similique aspernatur eum beatae consectetur hic molestiae quas vel accusamus repellat ut quam magnam.<Br><Br>
-
-			Aut autem voluptates eos inventore qui doloribus mollitia in ratione omnis rem vero ea dolorem odio aut porro quos? Ut dolores nemo debitis obcaecati ab cumque recusandae. Sit itaque ratione vel praesentium delectus et natus fugiat ad adipisci cupiditate At maiores minima in odio error. Nam adipisci error non neque molestiae aut fugiat quasi in aperiam commodi.<Br><Br>
-
-			Qui nemo vero et voluptatem nihil qui distinctio sunt sed galisum autem ex harum sapiente et quia ducimus et laboriosam saepe. 33 optio quibusdam ut sint assumenda aut pariatur provident. Eos ullam incidunt non minus voluptas eos excepturi illum ut magnam enim. Cum tenetur ipsa et omnis facilis sed perferendis autem qui deleniti quam aut molestiae internos?
-		</p>
-	</div>
+    <header class="header">
+        <nav class="navbar">
+            <a href="homepage.php" class="nav-logo">Snowman Service</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="homepage.php" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.php" class="activeNav">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="membership.php" class="nav-link">Membership</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.php" class="nav-link">Profile</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header><br>
+    <p class="fieldHeader">Who Are We?</p><br><br><br>
+    <div>
+        <table>
+            <tr>
+                <td><img src="assets/whoarewe.jpg" class="aboutImg"></td>
+                <td>
+                    <p class="para">
+                        Our service name is Snowman. We help our customers wash the cars and design the cars with reasonable price.
+                        The available services are washing different sizes of vehicles, stickering and designing vehicles and making sign-boards for your desired designs. You can buy car accessories from us too.
+                    </p>
+                </td>
+            </tr>
+        </table><br><br><br>
+        <hr>
+    </div><br><br>
+    <p class="fieldHeader">Our History</p><br><br><br>
+    <div>
+        <table>
+            <tr>
+                <td><img src="assets/ourhistory.jpg" class="aboutImg"></td>
+                <td>
+                    <p class="para">
+                        Our service is first founded in 2010. At the very first, our business’s purpose is only for stickering and designing vehicles. We didn’t even have mechanisms for creating and making stickers. We only had to use human power to run the business. We have been trying to improve our business and workflow year by year and now we have multiple services; cleaning, designing vehicles and selling vehicles-related accessories. 
+                    </p>
+                </td>
+            </tr>
+        </table><br><br><br>
+        <hr>
+    </div><br><br>
+    <p class="fieldHeader">Our Goal</p><br>
+    <div>
+        <table>
+            <tr>
+                <td><img src="assets/ourgoal.jpg" class="aboutImg"></td>
+                <td>
+                     <p class="para">
+                        Our clients are our biggest asset. And customer loyalty is our ultimate goal. That is why the satisfication of
+                        our customers is our first priority. <br><br>
+                        We’re striving to consistently improve our products and service, to keep them being the best they can be.
+                    </p>
+                </td>
+            </tr>
+        </table><br><br><br>
+    </div>
+    <footer class="footer-distributed">
+            <div class="footer-left">
+                 <h3>Snoman<span>Service</span></h3>
+                 
+                 <p class="footer-links">
+                     <a href="homepage.php">Home</a>
+                     ·
+                     <a href="about.php">About</a>
+                     ·
+                     <a href="membership.php">Membership</a>
+                     ·
+                     <a href="profile.php">Profile</a>
+                 </p>
+                 <p class="footer-company-name">snowman &copy; 2010</p>
+            </div>
+             <div class="footer-center">
+                 <div>
+                     <i class="fa fa-map-marker"></i>
+                     <p><span>Samone Street</span> Yangon, Myanmar</p>
+                 </div>
+                 
+                 <div>
+                     <i class="fa fa-phone"></i>
+                     <p>+95 95554321</p>
+                 </div>
+                 
+                 <div>
+                     <i class="fa fa-envelope"></i>
+                     <p><a href="mailto:support@company.com">snowman.L5project@gmail.com</a></p>
+                 </div>
+             </div>
+             <div class="footer-right">
+                 <p class="footer-company-about">
+                 <span>About the company</span>
+                    Snowman Service is here for all the customers' satisfication.
+                 </p>
+            </div>
+     </footer>
 </body>
+
+<script src="styles/main.js"></script>
 </html>

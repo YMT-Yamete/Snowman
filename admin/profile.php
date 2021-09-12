@@ -1,29 +1,5 @@
 <?php 
-    $connect = mysqli_connect('localhost','root','','snowman_project');
     session_start();
-
-    if (isset($_POST['Submit'])) {
-        $email = $_POST['Email'];
-        $password = $_POST['Password'];
-
-        $select = "SELECT * FROM user WHERE Email = '$email' AND Password = sha1('$password')";
-        $query = mysqli_query($connect,$select);
-        $count = mysqli_num_rows($query);
-        $arr = mysqli_fetch_array($query);
-
-        if ($count>0) {
-            $_SESSION['UserID'] = $arr['UserID'];
-            $_SESSION['UserName'] = $arr['UserName'];
-            $_SESSION['Email'] = $arr['Email'];
-            $_SESSION['Member'] = $arr['Member'];
-            
-            echo "<script>alert('Login Successful')</script>";
-            echo "<script>window.location = 'homepage.php'</script>";
-        }
-        else {
-            echo "<script>alert('Incorrect Email or Password')</script>";
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,13 +15,22 @@
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="#" class="nav-logo">Snowman Service</a>
+           <a href="homepage.php" class="nav-logo">Snowman Service</a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="register.php" class="nav-link">Register</a>
+                    <a href="booking.php" class="nav-link">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login.php" class="activeNav">Login</a>
+                    <a href="schedule.php" class="nav-link">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a href="history.php" class="nav-link">History</a>
+                </li>
+                <li class="nav-item">
+                    <a href="membership.php" class="nav-link">Membership</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.php" class="activeNav">Profile</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -56,31 +41,49 @@
         </nav>
     </header><br><br><br>   
     <div class="card">
-        <h1 class="fieldHeader">Login</h1><br>
-        <form method="POST" action="login.php">
-            <table class="center"> 
-                <tr>
-                    <td><input type="Email" name="Email" placeholder="Enter Email" required></td>
-                </tr>
-                <tr>
-                    <td><input type="Password" name="Password" placeholder="Enter Password" required></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="Submit" name="Submit" value="Login">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="linkForReg">
-                        <a href="register.php">I don't have an account.</a>
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <table class="center" width="100%"> 
+            <tr>
+                <td><h1>Admin ID</h1></td>
+                <td><h1> : </h1></td>
+                <td class="data"><?php echo $_SESSION['AdminID'] ?></td>
+            </tr>
+            <tr>
+                <td><pre>   </pre></td>
+            </tr>
+            <tr>
+                <td><h1>Admin Name</h1></td>
+                <td><h1> : </h1></td>
+                <td class="data"><?php echo $_SESSION['AdminName'] ?></td>
+            </tr>
+            <tr>
+                <td><pre>   </pre></td>
+            </tr>
+            <tr>
+                <td><h1>Email</h1></td>
+                <td><h1> : </h1></td>
+                <td class="data"><?php echo $_SESSION['AdminEmail'] ?></td>
+            </tr>
+            <tr>
+                <td><pre>   </pre></td>
+            </tr>
+        </table>
+        <a href="logout.php" class="linkAtRight">Log Out</a>
     </div>
     <footer class="footer-distributed" style="position: fixed;">
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
+                 
+                 <p class="footer-links">
+                     <a href="booking.php">Booking</a>
+                     ·
+                     <a href="schedule.php">Schedule</a>
+                     ·
+                     <a href="history.php">History</a>
+                     ·
+                     <a href="membership.php">Membership</a>
+                     ·
+                     <a href="profile.php">Profile</a>
+                 </p>
                  <p class="footer-company-name">snowman &copy; 2010</p>
             </div>
              <div class="footer-center">
