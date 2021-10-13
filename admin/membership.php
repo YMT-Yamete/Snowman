@@ -82,7 +82,7 @@
                         $memberID = $arr['MemberID'];
                         $startDate = $arr['StartDate'];
                         $endDate = $arr['EndDate'];
-                        echo "<input type='text' name='userID' value='$userID' hidden/>";
+                        echo "<input type='hidden' name='userID' value='$userID'/>";
                         echo "<tr>";
                         echo "<td style='text-align:center;'>$userID</td>";
                         echo "<td style='text-align:center;'>$memberID</td>";

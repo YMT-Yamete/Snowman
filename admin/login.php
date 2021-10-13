@@ -60,10 +60,10 @@
         <form method="POST" action="login.php">
             <table class="center">
                 <tr>
-                    <td><input type="Email" name="Email" placeholder="Enter Email"></td>
+                    <td><input type="Email" name="Email" placeholder="Enter Email" required></td>
                 </tr>
                 <tr>
-                    <td><input type="Password" name="Password" placeholder="Enter Password"></td>
+                    <td><input type="Password" name="Password" placeholder="Enter Password" required></td>
                 </tr>
                 <tr>
                     <td>
@@ -78,7 +78,7 @@
             </table>
         </form>
     </div>
-    <footer class="footer-distributed" style="position: fixed">
+    <footer class="footer-distributed">
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
                  <p class="footer-company-name">snowman &copy; 2010</p>

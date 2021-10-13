@@ -67,16 +67,16 @@
         <form method="POST" action="register.php">
             <table class="center"> 
                 <tr>
-                    <td><input type="text" name="Name" placeholder="Enter Name"></td>
+                    <td><input type="text" name="Name" placeholder="Enter Name" required></td>
                 </tr>
                 <tr>
-                    <td><input type="Email" name="Email" placeholder="Enter Email"></td>
+                    <td><input type="Email" name="Email" placeholder="Enter Email" required></td>
                 </tr>
                 <tr>
-                    <td><input type="Password" name="Password" placeholder="Enter Password"></td>
+                    <td><input type="Password" name="Password" placeholder="Enter Password" required></td>
                 </tr>
                 <tr>
-                    <td><input type="Password" name="RepeatPassword" placeholder="Enter Password Again"></td>
+                    <td><input type="Password" name="RepeatPassword" placeholder="Enter Password Again" required></td>
                 </tr>
                 <tr>
                     <td>

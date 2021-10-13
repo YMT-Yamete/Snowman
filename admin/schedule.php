@@ -79,6 +79,7 @@
 
     <div style="padding: 10px;">
         <p class="fieldHeader">Add Schedule</p><br>
+        <p style="text-align: center; color: red;">[ Customers wont be able to choose the added schedule ]</p>
         <form method="POST" action="schedule.php">
             <table class="center"> 
                 <tr>

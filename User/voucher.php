@@ -96,19 +96,19 @@
 <body>
     <header class="header">
         <nav class="navbar">
-           <a href="homepage.html" class="nav-logo">Snowman Service</a>
+           <a href="homepage.php" class="nav-logo">Snowman Service</a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="homepage.html" class="nav-link">Home</a>
+                    <a href="homepage.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="about.php" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="membership.html" class="nav-link">Membership</a>
+                    <a href="membership.php" class="nav-link">Membership</a>
                 </li>
                 <li class="nav-item">
-                    <a href="profile.html" class="activeNav">Profile</a>
+                    <a href="profile.php" class="nav-link">Profile</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -177,7 +177,7 @@
             <input type="submit" name="confirm" value="Confirm" class="linkAtRight">
         </form>
     </div>
-    <footer class="footer-distributed" style="position: fixed;">
+    <footer class="footer-distributed">
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
                  

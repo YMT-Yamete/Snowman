@@ -69,7 +69,8 @@
         </table>
         <a href="logout.php" class="linkAtRight">Log Out</a>
     </div>
-    <footer class="footer-distributed" style="position: fixed;">
+    <footer class="footer-distributed">
+            <br>
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
                  

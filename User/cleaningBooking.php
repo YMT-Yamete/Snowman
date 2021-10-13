@@ -83,16 +83,16 @@
             </div>
             <table class="center"> 
                 <tr>
-                    <td><input type="Text" name="name" placeholder="Enter Name" value=<?php echo $_SESSION['UserName'] ?> readonly></td>
+                    <td>Name<input type="Text" name="name" placeholder="Enter Name" value=<?php echo $_SESSION['UserName'] ?> readonly></td>
                 </tr>
                 <tr>
-                    <td><input type="Text" name="phone" placeholder="Enter Phone"></td>
+                    <td>Phone<input type="Text" name="phone" placeholder="Enter Phone"></td>
                 </tr>
                 <tr>
-                    <td><input type="Date" name="date"></td>
+                    <td>Service Date<input type="Date" name="date"></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td>Service Time
                         <select name="time">
                             <option value='' style="display:none">Please choose time</option>
                             <option value="9:00 am">9:00 am</option>

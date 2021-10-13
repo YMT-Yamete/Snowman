@@ -78,7 +78,7 @@
             </table>
         </form>
     </div>
-    <footer class="footer-distributed" style="position: fixed;">
+    <footer class="footer-distributed">
             <div class="footer-left">
                  <h3>Snoman<span>Service</span></h3>
                  <p class="footer-company-name">snowman &copy; 2010</p>

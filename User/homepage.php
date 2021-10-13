@@ -104,7 +104,7 @@
 
     <p class="fieldHeader">Feedback or Advice</p><br>
     <form method="POST" action="homepage.php">
-        <textarea class="TxtArea" rows="5" cols="80" name="feedback"></textarea><br>
+        <textarea class="TxtArea" rows="5" cols="80" name="feedback" required></textarea><br>
         <input name="submit" type="submit" value="Submit" class="TxtAreaButton">
     </form>
 

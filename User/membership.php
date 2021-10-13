@@ -12,6 +12,10 @@
         $query = mysqli_query($connect, $select);
         $count = mysqli_num_rows($query);
 
+        if ($fileName == null) {
+            echo "<script>alert('Please upload application form first')</script>";
+            echo "<script>window.location = 'membership.php</script>'";
+        }
         if ($count > 0) {
             echo "<script>alert('You can\\'t apply membership right now')</script>";
             echo "<script>window.location = 'membership.php'</script>";
